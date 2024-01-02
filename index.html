@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> Pokémon Tournament Registration </title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="header">
+    <div class="title">
+      <a href="index.html"><img src="img/pokemon.png" alt="Pokémon Logo" width="400px"></a>
+    </div>
+    <div class="headeropt">
+      <nav>
+        <br>
+        <br>
+        <a href="https://www.pokemon.com/br/pokedex/" class="sopt">Pokédex </a>
+        <a href='#ctt' class="copt">Contato</a>
+      </nav>
+    </div>
+  </div>
+  <img src="img/ash.png" class='bannere' width="530px">
+  <div class='container'>
+    <br>
+    <br>
+    <br>
+    <div class='registration'>
+      <h2>INSCRIÇÃO</h2>
+      <h3>Seja um Mestre Pokémon! Faça sua inscrição no Torneio Pokémon</h3>
+      <!-- ... (código anterior) ... -->
+
+      <form id="cadastroForm">
+        <label for="nome">Nome do Treinador:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br>
+        <br>
+
+        <label for="regiao">Região de Origem:</label>
+        <input type="text" id="regiao" name="regiao" required>
+        <br><br>
+      
+
+        <label for="pokemon">Pokémon Escolhido:</label>
+        <input type="text" id="pokemon" name="pokemon" required>
+
+        <div class='cat'>
+          <label for="cat">Tipo de Pokémon:</label>
+          <select name='cat'>
+            <option value='normal'>Normal</option>
+            <option value='fogo'>Fogo</option>
+            <option value='agua'>Água</option>
+            <option value='grama'>Grama</option>
+            <option value='terra'>Terra</option>
+            <option value='eletrico'>Elétrico</option>
+            <option value='psiquico'>Psíquico</option>
+            <option value='rocha'>Rocha</option>
+            <option value='fantasma'>Fantasma</option>
+            <option value='dragao'>Dragão</option>
+            <option value='fada'>Fada</option>
+            <option value='voador'>Voador</option>
+            <option value='inseto'>Inseto</option>
+          </select>
+        </div>
+
+        <div class="butao">
+          <button type="button" onclick="cadastrar()">Cadastrar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+    </div>
+<br>
+  <br>
+  <br>
+      <h5>Treinadores Cadastrados</h5>
+
+      <table id="dadosTable">
+        <thead>
+          <tr>
+            <th>Nome do Treinador</th>
+            <th>Região de Origem</th>
+            <th>Pokémon Escolhido</th>
+            <th>Tipo de Pokémon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dados serão adicionados dinamicamente aqui -->
+        </tbody>
+      </table>
+  
+    </div>
+    <div class="about">
+      <section id='sobre' class="sobre">
+        <h2>SOBRE</h2>
+        <p>Bem-vindo ao Torneio Pokémon! Torne-se um Treinador Pokémon lendário e mostre suas habilidades. Desde 1996, treinadores como você competem para se tornar o melhor. Faça sua inscrição agora e embarque nessa jornada emocionante!</p>
+      </section>
+    </div>
+    <section id="ctt" class='ctt'>
+      <h2>CONTATO</h2>
+      <p>Dúvidas ou questões? Entre em contato conosco via WhatsApp <a href='https://wa.me/+5538988033521'>+55 (38) 9 8803-3521</a> ou envie-nos um email para ccl3@aluno.ifnmg.edu.br</p>
+    </section>
+  </div>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Redes Sociais</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Aviso de Privacidade</a></li>
+          <li><a href="#">Página de Cookies</a></li>
+          <li><a href="#">Informações Legais</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Apoio</h4>
+        <ul>
+          <li><a href="#">Guia para Pais ou Responsáveis</a></li>
+          <li><a href="#">Atendimento ao Consumidor</a></li>
+          <li><a href="#">Sobre a Nossa Empresa</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <!-- ... (código anterior) ... -->
+
+  <script>
+      var dadosCadastrados = JSON.parse(localStorage.getItem('dadosCadastrados')) || [];
+
+      function cadastrar() {
+          var nome = document.getElementById("nome").value;
+          var regiao = document.getElementById("regiao").value;
+          var pokemon = document.getElementById("pokemon").value;
+          var categoria = document.getElementById("cadastroForm").elements["cat"].value;
+
+          if (nome && regiao && pokemon && categoria) {
+              dadosCadastrados.push({ nome: nome, regiao: regiao, pokemon: pokemon, categoria: categoria });
+              atualizarTabela();
+              document.getElementById("cadastroForm").reset();
+              localStorage.setItem('dadosCadastrados', JSON.stringify(dadosCadastrados));
+          } else {
+              alert("Por favor, preencha todos os campos.");
+          }
+      }
+
+      function adicionarBotoesAcao(row, index) {
+          var cellAcao = row.insertCell(4);
+          var btnAtualizar = document.createElement("button");
+          btnAtualizar.innerHTML = "Atualizar";
+          btnAtualizar.onclick = function () {
+              atualizarDados(index);
+          };
+          cellAcao.appendChild(btnAtualizar);
+
+          var btnDeletar = document.createElement("button");
+          btnDeletar.innerHTML = "Deletar";
+          btnDeletar.onclick = function () {
+              deletarDados(index);
+          };
+          cellAcao.appendChild(btnDeletar);
+      }
+
+      function atualizarDados(index) {
+          var dados = dadosCadastrados[index];
+          document.getElementById("nome").value = dados.nome;
+          document.getElementById("regiao").value = dados.regiao;
+          document.getElementById("pokemon").value = dados.pokemon;
+          document.getElementById("cadastroForm").elements["cat"].value = dados.categoria;
+          dadosCadastrados.splice(index, 1);
+          atualizarTabela();
+          localStorage.setItem('dadosCadastrados', JSON.stringify(dadosCadastrados));
+      }
+
+      function deletarDados(index) {
+          dadosCadastrados.splice(index, 1);
+          atualizarTabela();
+          localStorage.setItem('dadosCadastrados', JSON.stringify(dadosCadastrados));
+      }
+
+      function atualizarTabela() {
+          var tabela = document.getElementById("dadosTable").getElementsByTagName('tbody')[0];
+          tabela.innerHTML = '';
+
+          for (var i = 0; i < dadosCadastrados.length; i++) {
+              var newRow = tabela.insertRow(tabela.rows.length);
+              newRow.insertCell(0).innerHTML = dadosCadastrados[i].nome;
+              newRow.insertCell(1).innerHTML = dadosCadastrados[i].regiao;
+              newRow.insertCell(2).innerHTML = dadosCadastrados[i].pokemon;
+              newRow.insertCell(3).innerHTML = dadosCadastrados[i].categoria;
+              adicionarBotoesAcao(newRow, i);
+          }
+      }
+
+      window.onload = function () {
+          atualizarTabela();
+      };
+  </script>
+
+  <!-- ... (código posterior) ... -->
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,242 @@
+html {
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.title {
+  background: linear-gradient(90deg, #0400ff, #3c6ee2, #ffffff, #ffffff, #ffffff, #3c6ee2, #0400ff);
+  text-align: center;
+  margin-left: -1vw;
+  margin-right: -1vw;
+}
+
+.sobre {
+  color: black;
+  text-align: center;
+  margin-left: 30vw;
+  margin-top: 5vh;
+}
+
+@font-face {
+  font-family: 'NovaSquare';
+  src: url('Nova_Square/NovaSquare-Regular.ttf');
+}
+
+h2, h3, h4 {
+  margin-top: 2vh;
+  font-family: 'NovaSquare';
+}
+
+h5 {
+  font-size: 3vh;
+  font-family: 'NovaSquare';
+  margin-left: 20vw;
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.ctt {
+  color: black;
+  text-align: center;
+  margin-left: 30vw;
+  margin-top: 5vh;
+}
+
+
+.botion {
+  margin-left: -2vw;
+  margin-top: 5vh;
+}
+
+.sopt {
+  margin-right: 23vw;
+  font-size: 30px;
+}
+
+.copt {
+  margin-left: 4vw;
+  font-size: 30px;
+}
+
+.registration h2,
+.registration h3,
+.registration h4,
+.registration h5 {
+  color: #000000;
+  text-align: center;
+}
+
+form {
+  color: black;
+  margin-left: 25vw;
+}
+
+form .email {
+  margin-left: 15vw;
+  margin-top: -1.3vw;
+}
+
+form .age {
+  margin-left: 30vw;
+  margin-top: -1.3vw;
+}
+
+form .cat {
+  margin-top: 2vh;
+  margin-left: -2vw;
+}
+
+.button {
+  text-align: center;
+  margin-left: -25vw;
+  margin-top: 3vh;
+}
+
+button {
+  background-color: #211f93;
+  border: none;
+  color: white;
+  padding: 15px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 3px solid black;
+  border-radius: 8px;
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  background-color: #0400ff;
+}
+
+.bannere {
+  float: left;
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+.rodape {
+  background-color: #0400ff;
+  color: white;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.ctt p a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+
+.ctt p a:hover {
+  color: #0400ff;
+}
+
+.conteiner .insc {
+  text-align: center;
+}
+
+.conteiner {
+  text-align: center;
+}
+
+.about {
+  text-align: center;
+  text-decoration: none;
+  margin-left: 10vw;
+  margin-right: 2vw;
+}
+
+.conteiner .ctt {
+  text-decoration: none;
+  margin-left: 10vw;
+  margin-right: 2vw;
+  text-align: center;
+}
+
+.headeropt {
+  text-align: center;
+  margin-top: -3vh;
+}
+
+.headeropt a {
+  text-decoration: none;
+  font-family: 'NovaSquare';
+  color: black;
+  transition: color 0.5s ease;
+}
+
+.headeropt a:hover {
+  color: #ffcc01;
+}
+
+
+tr th {
+  border-collapse: collapse;
+  padding: 5vw 2vw ;
+  padding-top: 0.5vh;
+  text-align: center;
+}
+
+.registration {
+  margin-top: 70px;
+}
+
+.butao {
+  margin-left: 35vw;
+  margin-top: -120px;
+  text-align: center;
+}
+
+body {
+  margin: 2;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+footer {
+  background-color: #0400ff;
+  color: #ffcc01;
+  padding: 0px 5;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-section {
+  flex: 4;
+}
+
+h4 {
+  padding-top: -5vh; 
+  margin-left: 4vw;
+  font-size: 1.2em;
+  margin-bottom: -1vh;
+}
+
+ul {
+  list-style: none;
+  padding: 1vh;
+}
+
+li {
+  margin-bottom: 7px;
+  margin-left: 45px;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  color: #ffcc0177; /* Cor amarela, pode ajustar conforme preferir */
+}
+
+
